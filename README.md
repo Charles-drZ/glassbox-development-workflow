@@ -1,6 +1,8 @@
 # GlassBox Development Workflow — Public Case Study
 
-This repository describes a human-reviewed development workflow used for controlled, traceable independent product work. It is a sanitized case study: private repositories, issue content, and project-memory notes are not included.
+This repository describes the development workflow used for controlled, traceable independent product work.
+
+It matters because it shows how scope, implementation evidence, validation, and long-term project knowledge can work together without treating AI assistance as autonomous.
 
 ## Why this workflow exists
 
@@ -59,5 +61,13 @@ flowchart TD
 - [AI tool responsibilities](docs/ai-tool-responsibilities.md)
 - [Security and sanitization](docs/security-and-sanitization.md)
 - [Diagram notes](diagrams/workflow-overview.md)
+- [Changelog](CHANGELOG.md)
 
-This repository is a portfolio case study, not a live operations manual.
+## Related repositories
+
+- [Public developer profile](https://github.com/Charles-drZ/Charles-drZ)
+- [GlassBox product case study](https://github.com/Charles-drZ/glassbox-showcase)
+- [Automation workflow case study](https://github.com/Charles-drZ/automation-workflow-showcase)
+- [Raspberry Home documentation case study](https://github.com/Charles-drZ/raspberry-home-showcase)
+
+This is a public portfolio case study, not a live operations manual.
