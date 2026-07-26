@@ -1,3 +1,5 @@
+[← Development workflow case study](../README.md)
+
 # Workflow principles
 
 ## Shape ideas before implementation
@@ -19,3 +21,7 @@ Temporary status belongs in issue tracking. Accepted decisions, release notes, e
 ## Keep public and private information separate
 
 Private repositories remain the implementation source of truth. Public portfolio material is generalized, reviewed, and intentionally separate from internal work.
+
+---
+
+[← Return to development workflow case study](../README.md)
