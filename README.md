@@ -1,3 +1,5 @@
+[← Developer profile](https://github.com/Charles-drZ)
+
 # GlassBox Development Workflow — Evidence-Driven Delivery Case Study
 
 This repository describes the working model I use to turn product ideas and defects into scoped, implemented, validated, and reviewable outcomes.
@@ -6,15 +8,13 @@ This repository describes the working model I use to turn product ideas and defe
 
 ## At a glance
 
-| Area | Approach |
-| --- | --- |
-| Active product work | Linear |
-| Version and implementation evidence | GitHub |
-| Investigation and implementation support | ChatGPT and Codex |
-| Durable project memory | Obsidian-based Brainflow |
-| Workflow automation | n8n and OpenAI API |
-| Final authority | Human review and runtime acceptance |
-| Private material | Product source, tickets, prompts, evidence details, and live configuration |
+**Active product work:** Linear  
+**Version and implementation evidence:** GitHub  
+**Investigation and implementation support:** ChatGPT and Codex  
+**Durable project memory:** Obsidian-based Brainflow  
+**Workflow automation:** n8n and OpenAI API  
+**Final authority:** Human review and runtime acceptance  
+**Private material:** Product source, tickets, prompts, evidence details, and live configuration
 
 ## What this proves
 
@@ -57,16 +57,37 @@ flowchart TD
 
 ## Responsibility model
 
-| System or role | Primary responsibility |
-| --- | --- |
-| **ChatGPT** | Product orchestration, ticket shaping, specification support, scope review, and final cross-system review. |
-| **Codex** | Repository investigation, bounded implementation, debugging, targeted validation, and structured closing evidence. |
-| **Linear** | Accepted GlassBox scope, acceptance criteria, work state, and review state. |
-| **GitHub** | Repository state, commits, pull requests, and implementation evidence. |
-| **Brainflow** | Reviewed durable decisions, release context, validation summaries, and historical project memory. |
-| **n8n** | Deterministic collection, normalization, candidate preparation, and workflow coordination. |
-| **OpenAI API** | Optional bounded structured-text processing inside explicit contracts. |
-| **Human reviewer** | Product authority, privacy review, publication approval, and runtime acceptance. |
+### ChatGPT
+
+Product orchestration, ticket shaping, specification support, scope review, and final cross-system review.
+
+### Codex
+
+Repository investigation, bounded implementation, debugging, targeted validation, and structured closing evidence.
+
+### Linear
+
+Accepted GlassBox scope, acceptance criteria, work state, and review state.
+
+### GitHub
+
+Repository state, commits, pull requests, and implementation evidence.
+
+### Brainflow
+
+Reviewed durable decisions, release context, validation summaries, and historical project memory.
+
+### n8n
+
+Deterministic collection, normalization, candidate preparation, and workflow coordination.
+
+### OpenAI API
+
+Optional bounded structured-text processing inside explicit contracts.
+
+### Human reviewer
+
+Product authority, privacy review, publication approval, and runtime acceptance.
 
 ## Status discipline
 
