@@ -89,6 +89,20 @@ Optional bounded structured-text processing inside explicit contracts.
 
 Product authority, privacy review, publication approval, and runtime acceptance.
 
+## Brainflow — durable project memory
+
+Brainflow is the private project-memory system supporting GlassBox development. It turns reviewed, sourced project work into durable knowledge rather than treating chat history, task status, or an agent summary as permanent truth.
+
+The system preserves reviewed decisions, release context, validation summaries, and long-term relationships between project knowledge. The visual below is derived from the real Brainflow system, while identifying labels, filenames, tickets, counts, working controls, source material, and implementation details remain private.
+
+<p align="center">
+  <img src="assets/visuals/brainflow-atlas.jpg" alt="Brainflow Atlas showing interconnected durable project-memory regions" width="700">
+</p>
+
+> **Brainflow Atlas — a visual representation of how reviewed project work is organized into durable project knowledge. The live graph, source material, labels, and implementation remain private.**
+
+Brainflow is not an automatic source of truth. Information becomes durable project memory only after its source, meaning, and validation state have been reviewed.
+
 ## Status discipline
 
 - **Intake** means an idea or report exists; it does not authorize implementation.
@@ -114,14 +128,14 @@ The evidence required depends on the risk and nature of the change. No single co
 
 ## Visual evidence
 
-Additional visuals can be added later without changing the case-study structure, including:
+The Brainflow Atlas is the first privacy-reviewed visual published in this case study. Future additions may include:
 
 - a sanitized lifecycle example;
 - a high-level workflow map;
 - anonymized evidence and handoff examples;
 - recruiter-friendly summaries of completed work.
 
-No real GlassBox ticket, private source excerpt, internal prompt, or raw runtime evidence will be published.
+No real GlassBox ticket, private source excerpt, internal prompt, raw runtime evidence, or labeled Brainflow graph will be published.
 
 ## Public boundary
 
