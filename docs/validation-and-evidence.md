@@ -1,3 +1,5 @@
+[← Development workflow case study](../README.md)
+
 # Validation and evidence
 
 ## Evidence is proportional to the change
@@ -20,3 +22,7 @@ Compilation establishes that a code path can be built; it does not establish tha
 ## Closing the loop
 
 The completion record should describe the scope, validation performed, observed result, remaining risk, and any follow-up. Evidence gaps are recorded rather than silently treating a change as complete.
+
+---
+
+[← Return to development workflow case study](../README.md)
