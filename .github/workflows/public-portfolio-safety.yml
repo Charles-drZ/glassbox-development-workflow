@@ -33,9 +33,19 @@ jobs:
         shell: bash
         run: |
           set -Eeuo pipefail
-          forbidden='\.(swift|xcodeproj|xcworkspace|entitlements|storekit)$'
+          forbidden='(^|/)[^/]+\.(xcodeproj|xcworkspace)(/|$)|\.(swift|pbxproj|xcconfig|entitlements|storekit|plist|xcscheme|xcworkspacedata|diff|patch)$'
           if git ls-files | grep -Ei "$forbidden"; then
-            echo "Application implementation artifact found in a public portfolio repository." >&2
+            echo "Application implementation or patch artifact found in a public portfolio repository." >&2
+            exit 1
+          fi
+
+      - name: Reject Swift source-shaped excerpts
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          patterns='^[[:space:]]*import[[:space:]]+(SwiftUI|Foundation|SwiftData|CloudKit|StoreKit|HealthKit)([[:space:]]|$)|^[[:space:]]*@(main|Model|State|StateObject|ObservedObject|Environment|EnvironmentObject|Query|Published|AppStorage)([[:space:](]|$)|^[[:space:]]*(public[[:space:]]+|private[[:space:]]+|internal[[:space:]]+|fileprivate[[:space:]]+)?(struct|class|actor|enum|protocol)[[:space:]]+[A-Za-z_][A-Za-z0-9_]*.*\{[[:space:]]*$|^[[:space:]]*(public[[:space:]]+|private[[:space:]]+|internal[[:space:]]+|fileprivate[[:space:]]+)?func[[:space:]]+[A-Za-z_][A-Za-z0-9_]*[[:space:]]*\(|^[[:space:]]*(public[[:space:]]+|private[[:space:]]+|internal[[:space:]]+|fileprivate[[:space:]]+)?var[[:space:]]+body[[:space:]]*:[[:space:]]*some[[:space:]]+View'
+          if grep -RInE --exclude-dir=.git --exclude='public-portfolio-safety.yml' --exclude='public-safety.yml' "$patterns" .; then
+            echo "Swift source-shaped excerpt found in public material." >&2
             exit 1
           fi
 
