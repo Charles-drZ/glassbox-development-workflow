@@ -2,6 +2,14 @@
 
 # Changelog
 
+## 2026-07-26 — Brainflow Atlas visual evidence
+
+- Added the first privacy-reviewed Brainflow visual to the public development-workflow case study.
+- Introduced a dedicated `Brainflow — durable project memory` section explaining how reviewed, sourced work becomes durable project knowledge.
+- Published a label-free Atlas view derived from the real Brainflow system while excluding filenames, ticket identifiers, dates, counts, controls, source material, and implementation detail.
+- Removed embedded display-profile metadata from the exported image before publication.
+- Kept the live labeled graph, private documents, project evidence, and Brainflow implementation outside the public repository.
+
 ## 2026-07-26 — evidence-driven workflow refresh
 
 - Updated the case study to the current scoped, evidence-driven product-delivery model.
