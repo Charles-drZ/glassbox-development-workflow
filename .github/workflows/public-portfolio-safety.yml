@@ -1,0 +1,73 @@
+name: Public portfolio safety
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-public-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate whitespace
+        run: git diff --check
+
+      - name: Reject private and runtime artifacts
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          forbidden='(^|/)(\.env|secrets\.yaml|\.storage)(/|$)|\.(db|sqlite|sqlite3|key|pem|p8|p12|pfx|mobileprovision|xcresult|zip|tar|tgz|gz)$'
+          if git ls-files | grep -E "$forbidden"; then
+            echo "Forbidden private or runtime artifact is tracked." >&2
+            exit 1
+          fi
+
+      - name: Reject GlassBox implementation artifacts
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          forbidden='\.(swift|xcodeproj|xcworkspace|entitlements|storekit)$'
+          if git ls-files | grep -Ei "$forbidden"; then
+            echo "Application implementation artifact found in a public portfolio repository." >&2
+            exit 1
+          fi
+
+      - name: Scan for high-confidence secrets
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          patterns='BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+|sk-[A-Za-z0-9]{20,}|Authorization:[[:space:]]*Bearer[[:space:]]+[A-Za-z0-9._-]+'
+          if grep -RInE --exclude-dir=.git "$patterns" .; then
+            echo "High-confidence secret pattern found." >&2
+            exit 1
+          fi
+
+      - name: Reject private network addresses
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          patterns='(^|[^0-9])(10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}|192\.168\.[0-9]{1,3}\.[0-9]{1,3}|172\.(1[6-9]|2[0-9]|3[01])\.[0-9]{1,3}\.[0-9]{1,3})([^0-9]|$)'
+          if grep -RInE --exclude-dir=.git "$patterns" .; then
+            echo "Private IPv4 address found in public material." >&2
+            exit 1
+          fi
+
+      - name: Reject private project and device identifiers
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          patterns='GLA-[0-9]+|000081[0-9A-Fa-f]{2}-[0-9A-Fa-f]{16}'
+          if grep -RInE --exclude-dir=.git "$patterns" .; then
+            echo "Private ticket or physical-device identifier found." >&2
+            exit 1
+          fi
+
+      - name: Confirm portfolio entry point
+        run: test -s README.md
