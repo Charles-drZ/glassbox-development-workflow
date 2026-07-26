@@ -1,3 +1,5 @@
+[← Development workflow case study](../README.md)
+
 # Security and sanitization
 
 This public case study is intentionally separated from private implementation work.
@@ -11,3 +13,7 @@ This public case study is intentionally separated from private implementation wo
 - Public material is reviewed for identifiers, screenshots, metadata, and accidental local paths before publication.
 
 The goal is to show a credible workflow without weakening privacy or operational security.
+
+---
+
+[← Return to development workflow case study](../README.md)

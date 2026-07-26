@@ -1,3 +1,5 @@
+[← Development workflow case study](../README.md)
+
 # AI tool responsibilities
 
 AI tools are used as bounded assistants within a human-reviewed workflow.
@@ -17,3 +19,7 @@ Remains responsible for product choices, privacy boundaries, release acceptance,
 ## Operating rule
 
 AI output is reviewed and corrected. It is not trusted automatically, and it does not authorize changes beyond the accepted scope.
+
+---
+
+[← Return to development workflow case study](../README.md)

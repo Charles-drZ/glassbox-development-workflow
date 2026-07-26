@@ -1,3 +1,5 @@
+[← Development workflow case study](../README.md)
+
 # Ticket lifecycle
 
 ## 1. Intake
@@ -29,3 +31,7 @@ Once acceptance evidence is reviewed, the work can be completed. Long-lived deci
 **Report:** “A returning user sees an unexpected setup screen.”
 
 **Shaped outcome:** The expected returning-user path is described, the affected boundary is audited first, and validation includes a clean reinstall plus a restore check. No live issue data, screenshots, or implementation details are needed to explain this pattern.
+
+---
+
+[← Return to development workflow case study](../README.md)
