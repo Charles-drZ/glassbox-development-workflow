@@ -1,154 +1,154 @@
 [← Developer profile](https://github.com/Charles-drZ)
 
-# GlassBox Development Workflow — Evidence-Driven Delivery Case Study
+# GlassBox Engineering Delivery System
 
-This repository describes the working model I use to turn product ideas and defects into scoped, implemented, validated, and reviewable outcomes.
+**A case study in keeping product intent, implementation, validation, and durable engineering knowledge aligned.**
 
-> **The workflow shows how I use AI tools without outsourcing product judgment, privacy decisions, runtime acceptance, or final responsibility.**
+This is the working model around GlassBox development. It is not the product itself and it is not an attempt to automate engineering judgment.
 
-## At a glance
+Its purpose is practical: when product work spans issues, source code, AI-assisted investigation, test evidence, physical-device validation, release work, and long-lived documentation, each system needs a clear responsibility.
 
-**Active product work:** Linear  
-**Version and implementation evidence:** GitHub  
-**Investigation and implementation support:** ChatGPT and Codex  
-**Durable project memory:** Obsidian-based Brainflow  
-**Workflow automation:** n8n and OpenAI API  
-**Final authority:** Human review and runtime acceptance  
-**Private material:** Product source, tickets, prompts, evidence details, and live configuration
+## The problem it solves
 
-## What this proves
+Long-running solo development becomes fragile when the same fact exists in several places with different meanings.
 
-- I can separate product intent, implementation, evidence, validation, and long-term knowledge instead of treating them as one blurred activity.
-- I work from accepted scope and observable evidence rather than allowing an AI agent to decide what is complete.
-- I distinguish successful compilation from runtime acceptance.
-- I preserve decisions and validated outcomes so future work does not depend only on chat history.
-- I can design a multi-tool engineering workflow with explicit ownership and safety boundaries.
+A ticket can say a feature is done while the runtime is still broken. A successful build can exist without physical-device acceptance. A chat can contain an important decision that never reaches durable project documentation. An automated summary can sound confident while missing source evidence.
 
-## Why the workflow exists
+The workflow therefore separates four questions:
 
-Independent development can become difficult to control when ideas, tickets, code changes, AI conversations, test results, and historical notes all compete to be the source of truth.
-
-This workflow assigns each system one primary responsibility. That makes it possible to answer four questions clearly:
-
-1. What work was accepted?
-2. What was actually changed?
-3. What evidence shows the result works?
-4. What knowledge should remain available after the work is closed?
-
-## Workflow
-
-```mermaid
-flowchart TD
-    A[Product idea or defect] --> B[Linear intake]
-    B --> C[Scope and acceptance review]
-    C --> D{Enough evidence to implement?}
-    D -- No --> E[Read-only repository or runtime investigation]
-    E --> C
-    D -- Yes --> F[Bounded implementation]
-    F --> G[Git commit and implementation evidence]
-    G --> H[Tests and runtime validation]
-    H --> I{Acceptance criteria met?}
-    I -- No --> C
-    I -- Yes --> J[Human acceptance]
-    J --> K[Work-state completion]
-    K --> L[Durable project-memory candidate]
-    L --> M[Review-gated memory update]
-```
+1. **What work was accepted?**
+2. **What was actually implemented?**
+3. **What evidence shows the result works?**
+4. **What knowledge should remain durable after the work is closed?**
 
 ## Responsibility model
 
-### ChatGPT
+**Linear** owns accepted product scope, acceptance criteria, and active work state.
 
-Product orchestration, ticket shaping, specification support, scope review, and final cross-system review.
+**GitHub** owns repository state, commits, pull requests, and implementation evidence.
 
-### Codex
+**Codex** supports bounded repository investigation, implementation, debugging, and targeted validation.
 
-Repository investigation, bounded implementation, debugging, targeted validation, and structured closing evidence.
+**ChatGPT** supports product orchestration, specification work, review, and cross-system reasoning.
 
-### Linear
+**Brainflow** stores reviewed durable decisions, release context, validation summaries, and long-term project knowledge.
 
-Accepted GlassBox scope, acceptance criteria, work state, and review state.
+**n8n** handles deterministic collection, normalization, candidate preparation, and workflow coordination.
 
-### GitHub
+**Human review** remains the authority for product meaning, privacy, publication, risky operations, and final runtime acceptance.
 
-Repository state, commits, pull requests, and implementation evidence.
+No tool is allowed to silently become the source of truth for responsibilities owned by another system.
 
-### Brainflow
+## Delivery loop
 
-Reviewed durable decisions, release context, validation summaries, and historical project memory.
+```mermaid
+flowchart TD
+    A[Product idea or defect] --> B[Accepted scope]
+    B --> C{Enough evidence?}
+    C -- No --> D[Read-only investigation]
+    D --> B
+    C -- Yes --> E[Bounded implementation]
+    E --> F[Git implementation evidence]
+    F --> G[Tests / builds / runtime validation]
+    G --> H{Acceptance met?}
+    H -- No --> B
+    H -- Yes --> I[Human acceptance]
+    I --> J[Close work state]
+    J --> K[Durable knowledge candidate]
+    K --> L[Reviewed project-memory update]
+```
 
-### n8n
+This loop is intentionally risk-sensitive. A documentation change, a SwiftUI interaction, a CloudKit restore path, and an infrastructure mutation do not require identical proof.
 
-Deterministic collection, normalization, candidate preparation, and workflow coordination.
+## Evidence model
 
-### OpenAI API
+Depending on the change, completion evidence can include:
 
-Optional bounded structured-text processing inside explicit contracts.
+- repository and diff review;
+- targeted automated tests;
+- debug or release builds;
+- physical-device validation;
+- real-runtime smoke checks;
+- persistence/restore/reinstall checks;
+- rollback or recovery proof;
+- explicit visual or behavioral acceptance.
 
-### Human reviewer
+The important rule is that **evidence matches the claim**. A compile proves compilation. It does not automatically prove a user flow, synchronization path, production deployment, or visual result.
 
-Product authority, privacy review, publication approval, and runtime acceptance.
+## Brainflow — durable engineering knowledge
 
-## Brainflow — durable project memory
+Brainflow is the private project-memory layer around GlassBox. It keeps reviewed decisions and validated outcomes available beyond individual chats or issue lifecycles.
 
-Brainflow is the private project-memory system supporting GlassBox development. It turns reviewed, sourced project work into durable knowledge rather than treating chat history, task status, or an agent summary as permanent truth.
+It contains durable product and engineering context such as:
 
-The system preserves reviewed decisions, release context, validation summaries, and long-term relationships between project knowledge. The visual below is derived from the real Brainflow system, while identifying labels, filenames, tickets, counts, working controls, source material, and implementation details remain private.
+- accepted product decisions;
+- release and TestFlight context;
+- validation summaries;
+- architecture/workflow decisions;
+- historical project state;
+- links between implementation evidence and longer-lived knowledge.
+
+A deterministic Brain Atlas export helps visualize relationships across this knowledge system.
 
 <p align="center">
   <img src="assets/visuals/brainflow-atlas.jpg" alt="Brainflow Atlas showing interconnected durable project-memory regions" width="700">
 </p>
 
-> **Brainflow Atlas — a visual representation of how reviewed project work is organized into durable project knowledge. The live graph, source material, labels, and implementation remain private.**
-
-Brainflow is not an automatic source of truth. Information becomes durable project memory only after its source, meaning, and validation state have been reviewed.
+Information does not become durable memory merely because an AI generated it. Source, meaning, and validation state are reviewed first.
 
 ## Status discipline
 
-- **Intake** means an idea or report exists; it does not authorize implementation.
-- **Backlog** means future work has been shaped but is not active.
-- **In Progress** means investigation or implementation is active.
-- **In Review** means evidence, validation, or a decision is still pending.
-- **Done** means the accepted criteria and required evidence are complete.
+Workflow state describes evidence and decision state rather than optimism:
 
-The exact tracker configuration remains private; the public principle is that status describes evidence and decision state rather than optimism.
+- **Intake** — an idea or report exists;
+- **Backlog** — future work is shaped but inactive;
+- **In Progress** — investigation or implementation is active;
+- **In Review** — evidence, validation, or a decision is pending;
+- **Done** — accepted criteria and required evidence are complete.
 
-## Evidence discipline
+The exact tracker configuration remains private; the transferable idea is that status should communicate what is actually known.
 
-A change can require several independent forms of proof:
+## Engineering principles
 
-- repository and diff review;
-- targeted automated tests;
-- debug and release builds;
-- physical-device or real-runtime validation;
-- manual acceptance for visual or behavioral work;
-- explicit confirmation that protected systems and user data were not affected.
+### Explicit authority
 
-The evidence required depends on the risk and nature of the change. No single command is treated as universal proof.
+Each system owns a bounded kind of truth. This reduces accidental drift between tickets, source, runtime behavior, and documentation.
 
-## Visual evidence
+### Deterministic before semantic
 
-The Brainflow Atlas is the first privacy-reviewed visual published in this case study. Future additions may include:
+Where data can be collected, normalized, keyed, compared, or validated deterministically, that happens before model-assisted interpretation.
 
-- a sanitized lifecycle example;
-- a high-level workflow map;
-- anonymized evidence and handoff examples;
-- recruiter-friendly summaries of completed work.
+### Runtime matters
 
-No real GlassBox ticket, private source excerpt, internal prompt, raw runtime evidence, or labeled Brainflow graph will be published.
+Physical devices and real services remain authoritative for behavior that only exists at runtime.
+
+### Recovery is part of delivery
+
+Infrastructure and persistence changes are planned with rollback, restore, or safe failure paths rather than treating recovery as an afterthought.
+
+### Durable knowledge is reviewed
+
+Chat history is useful working context, not permanent project truth. Only reviewed outcomes and decisions are promoted into long-lived project memory.
+
+## What this demonstrates
+
+This system is supporting evidence for the product and infrastructure work elsewhere in the portfolio. It demonstrates:
+
+- engineering orchestration across multiple tools;
+- source-of-truth design;
+- risk-sensitive validation;
+- explicit human/automation authority boundaries;
+- long-lived technical documentation;
+- deterministic evidence handling;
+- a development process that remains inspectable even when AI tools participate in implementation.
 
 ## Public boundary
 
-This repository is a conceptual engineering case study. It does not include:
+The repository does not publish GlassBox source, real issue bodies, private prompts, raw runtime evidence, live n8n exports, credentials, internal Brainflow documents, or private roadmap material.
 
-- application source code or implementation details;
-- real issue descriptions, comments, identifiers, or private roadmap material;
-- internal Codex prompts or closing reports;
-- live n8n exports, credentials, execution logs, or API payloads;
-- Brainflow documents containing private product evidence;
-- automatic authority to merge, publish, or mark work complete.
+Public diagrams and explanations describe responsibilities and engineering principles rather than exposing deployable internal systems.
 
-## Explore the case study
+## Explore
 
 - [Workflow principles](docs/workflow-principles.md)
 - [Source-of-truth model](docs/source-of-truth-model.md)
@@ -161,9 +161,8 @@ This repository is a conceptual engineering case study. It does not include:
 
 ## Related work
 
-- [Developer profile](https://github.com/Charles-drZ/Charles-drZ)
-- [GlassBox product case study](https://github.com/Charles-drZ/glassbox-showcase)
-- [Automation workflow case study](https://github.com/Charles-drZ/automation-workflow-showcase)
-- [Raspberry Home case study](https://github.com/Charles-drZ/raspberry-home-showcase)
-
-This is a public portfolio case study, not a live operations manual.
+- [Developer profile](https://github.com/Charles-drZ)
+- [GlassBox](https://github.com/Charles-drZ/glassbox-showcase)
+- [NodeMedic](https://github.com/Charles-drZ/nodemedic-showcase)
+- [Raspberry Home](https://github.com/Charles-drZ/raspberry-home-showcase)
+- [Automation workflow](https://github.com/Charles-drZ/automation-workflow-showcase)
