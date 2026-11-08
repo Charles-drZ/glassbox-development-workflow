@@ -1,8 +1,14 @@
 [← Developer profile](https://github.com/Charles-drZ)
 
-# GlassBox Engineering Delivery System
+# GlassBox · Skill-Guided Apple Development Workflow
 
-**A case study in keeping product intent, implementation, validation, and durable engineering knowledge aligned.**
+**How I use Codex, task-specific SwiftUI/Xcode skills and independent validation while building a real iOS/watchOS product.**
+
+The workflow includes the official **Build iOS Apps** Codex plugin, a pinned SwiftUI Expert reference skill and two small project-specific skills for native Xcode diagnosis and test-evidence assessment. They guide relevant tasks without replacing Apple tooling, accepted scope or human product decisions.
+
+**[Read the skill-guided Apple development case study →](docs/skill-guided-apple-development.md)**
+
+The wider delivery system keeps product intent, implementation, validation and durable engineering knowledge aligned.
 
 This is the working model around GlassBox development. It is not the product itself and it is not an attempt to automate engineering judgment.
 
@@ -27,7 +33,7 @@ The workflow therefore separates four questions:
 
 **GitHub** owns repository state, commits, pull requests, and implementation evidence.
 
-**Codex** supports bounded repository investigation, implementation, debugging, and targeted validation.
+**Codex** supports bounded repository investigation, implementation, debugging, and targeted validation. Task-relevant skills improve routing to SwiftUI and native Xcode expertise; they do not grant build, device, publication or data privileges.
 
 **ChatGPT** supports product orchestration, specification work, review, and cross-system reasoning.
 
@@ -59,6 +65,20 @@ flowchart TD
 ```
 
 This loop is intentionally risk-sensitive. A documentation change, a SwiftUI interaction, a CloudKit restore path, and an infrastructure mutation do not require identical proof.
+
+## Skill-guided Apple workflow
+
+The accepted GlassBox development setup separates general-purpose coding from Apple-specific guidance:
+
+- **Official Build iOS Apps plugin:** preferred SwiftUI patterns and scoped performance guidance; bundled execution-capable MCP disabled.
+- **SwiftUI Expert:** pinned reference skill for selected SwiftUI API questions and gaps.
+- **Custom Xcode workflow skill:** discovery and diagnosis across scheme, compiler, XCTest, previews and runtime context.
+- **Custom test-evidence skill:** exact-source validation planning and truthful PASS/FAIL/SKIP interpretation.
+- **Bounded read-only delegation:** narrow Explorer/Diagnostic roles; one Explorer pilot verified, no blanket performance claim.
+
+Skills are selected for the task rather than automatically loaded in bulk. The existing `AGENTS.md`, accepted project decisions, native Xcode tools and human review remain authoritative.
+
+[Technical details and verification boundaries →](docs/skill-guided-apple-development.md)
 
 ## Evidence model
 
@@ -154,6 +174,7 @@ Public diagrams and explanations describe responsibilities and engineering princ
 - [Source-of-truth model](docs/source-of-truth-model.md)
 - [Ticket lifecycle](docs/ticket-lifecycle.md)
 - [Validation and evidence](docs/validation-and-evidence.md)
+- [Skill-guided Apple development](docs/skill-guided-apple-development.md)
 - [AI tool responsibilities](docs/ai-tool-responsibilities.md)
 - [Security and sanitization](docs/security-and-sanitization.md)
 - [Diagram notes](diagrams/workflow-overview.md)
@@ -162,7 +183,8 @@ Public diagrams and explanations describe responsibilities and engineering princ
 ## Related work
 
 - [Developer profile](https://github.com/Charles-drZ)
-- [GlassBox](https://github.com/Charles-drZ/glassbox-showcase)
+- [GlassBox iOS/watchOS](https://github.com/Charles-drZ/glassbox-showcase)
+- [GlassPort native macOS](https://github.com/Charles-drZ/glassport-showcase)
 - [NodeMedic](https://github.com/Charles-drZ/nodemedic-showcase)
 - [Raspberry Home](https://github.com/Charles-drZ/raspberry-home-showcase)
 - [Automation workflow](https://github.com/Charles-drZ/automation-workflow-showcase)
