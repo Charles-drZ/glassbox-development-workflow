@@ -1,190 +1,66 @@
-[← Developer profile](https://github.com/Charles-drZ)
+[← Apple developer profile](https://github.com/Charles-drZ)
 
-# GlassBox · Skill-Guided Apple Development Workflow
+# Skill-guided Apple development workflow
 
-**How I use Codex, task-specific SwiftUI/Xcode skills and independent validation while building a real iOS/watchOS product.**
+**How I use Codex, task-relevant SwiftUI/Xcode skills and independent evidence while developing a real iOS/watchOS product.**
 
-The workflow includes the official **Build iOS Apps** Codex plugin, a pinned SwiftUI Expert reference skill and two small project-specific skills for native Xcode diagnosis and test-evidence assessment. They guide relevant tasks without replacing Apple tooling, accepted scope or human product decisions.
+This is the engineering workflow behind [GlassBox](https://github.com/Charles-drZ/glassbox-showcase), **not** a standalone Apple app, commercial agent platform or automatic code-quality guarantee.
 
-**[Read the skill-guided Apple development case study →](docs/skill-guided-apple-development.md)**
+The main product work is native Swift/SwiftUI. Codex helps with scoped investigation, implementation and debugging; Xcode and platform-specific validation remain the reference points.
 
-The wider delivery system keeps product intent, implementation, validation and durable engineering knowledge aligned.
+## The specialist skills
 
-This is the working model around GlassBox development. It is not the product itself and it is not an attempt to automate engineering judgment.
+| Capability | Role | Boundary |
+| --- | --- | --- |
+| Official **Build iOS Apps** plugin | Task-selected SwiftUI patterns and focused performance advice | Its bundled execution-capable XcodeBuildMCP remains disabled |
+| Pinned **SwiftUI Expert** | Focused API/reference questions | Guidance, not product architecture authority |
+| Custom **Xcode workflow** skill | Native workspace/tool selection and compiler/XCTest/preview diagnosis | Does not itself authorize execution |
+| Custom **test-evidence** skill | Evidence planning and interpretation tied to exact source | Build, test, device result and Product acceptance stay distinct |
 
-Its purpose is practical: when product work spans issues, source code, AI-assisted investigation, test evidence, physical-device validation, release work, and long-lived documentation, each system needs a clear responsibility.
+The repository's private `AGENTS.md`, accepted issue scope and architecture contracts decide what an agent may actually do. Skills are selected for the task; unrelated skills are not loaded merely because they are installed.
 
-## The problem it solves
+**[Read the full Apple skill-routing case study →](docs/skill-guided-apple-development.md)**
 
-Long-running solo development becomes fragile when the same fact exists in several places with different meanings.
+## How a change reaches acceptance
 
-A ticket can say a feature is done while the runtime is still broken. A successful build can exist without physical-device acceptance. A chat can contain an important decision that never reaches durable project documentation. An automated summary can sound confident while missing source evidence.
-
-The workflow therefore separates four questions:
-
-1. **What work was accepted?**
-2. **What was actually implemented?**
-3. **What evidence shows the result works?**
-4. **What knowledge should remain durable after the work is closed?**
-
-## Responsibility model
-
-**Linear** owns accepted product scope, acceptance criteria, and active work state.
-
-**GitHub** owns repository state, commits, pull requests, and implementation evidence.
-
-**Codex** supports bounded repository investigation, implementation, debugging, and targeted validation. Task-relevant skills improve routing to SwiftUI and native Xcode expertise; they do not grant build, device, publication or data privileges.
-
-**ChatGPT** supports product orchestration, specification work, review, and cross-system reasoning.
-
-**Brainflow** stores reviewed durable decisions, release context, validation summaries, and long-term project knowledge.
-
-**n8n** handles deterministic collection, normalization, candidate preparation, and workflow coordination.
-
-**Human review** remains the authority for product meaning, privacy, publication, risky operations, and final runtime acceptance.
-
-No tool is allowed to silently become the source of truth for responsibilities owned by another system.
-
-## Delivery loop
-
-```mermaid
-flowchart TD
-    A[Product idea or defect] --> B[Accepted scope]
-    B --> C{Enough evidence?}
-    C -- No --> D[Read-only investigation]
-    D --> B
-    C -- Yes --> E[Bounded implementation]
-    E --> F[Git implementation evidence]
-    F --> G[Tests / builds / runtime validation]
-    G --> H{Acceptance met?}
-    H -- No --> B
-    H -- Yes --> I[Human acceptance]
-    I --> J[Close work state]
-    J --> K[Durable knowledge candidate]
-    K --> L[Reviewed project-memory update]
+```text
+accepted product scope
+  → relevant skill guidance
+  → bounded source changes
+  → exact-HEAD diff review
+  → authorized Xcode build / tests / device validation
+  → independent evidence assessment
+  → human Product / release decision
 ```
 
-This loop is intentionally risk-sensitive. A documentation change, a SwiftUI interaction, a CloudKit restore path, and an infrastructure mutation do not require identical proof.
+The project also records a successful **bounded, read-only Explorer subagent** pilot. This verifies that the configured route can execute; it does **not** establish generalized speed, cost or quality improvements.
 
-## Skill-guided Apple workflow
+## Why the boundaries matter
 
-The accepted GlassBox development setup separates general-purpose coding from Apple-specific guidance:
+A green build does not prove a SwiftUI interaction works on a physical device. A host test does not prove CloudKit synchronization. An AI agent saying a feature is complete is not acceptance evidence.
 
-- **Official Build iOS Apps plugin:** preferred SwiftUI patterns and scoped performance guidance; bundled execution-capable MCP disabled.
-- **SwiftUI Expert:** pinned reference skill for selected SwiftUI API questions and gaps.
-- **Custom Xcode workflow skill:** discovery and diagnosis across scheme, compiler, XCTest, previews and runtime context.
-- **Custom test-evidence skill:** exact-source validation planning and truthful PASS/FAIL/SKIP interpretation.
-- **Bounded read-only delegation:** narrow Explorer/Diagnostic roles; one Explorer pilot verified, no blanket performance claim.
+The wider delivery system uses **Linear** for accepted scope, **GitHub** for commits and PR evidence, **Brainflow** for reviewed long-lived project knowledge, and deterministic automation for collection and coordination. These tools support the product; they are not a substitute for understanding and validating the platform behavior.
 
-Skills are selected for the task rather than automatically loaded in bulk. The existing `AGENTS.md`, accepted project decisions, native Xcode tools and human review remain authoritative.
+[Source-of-truth model →](docs/source-of-truth-model.md) · [Validation and evidence →](docs/validation-and-evidence.md) · [AI tool responsibilities →](docs/ai-tool-responsibilities.md)
 
-[Technical details and verification boundaries →](docs/skill-guided-apple-development.md)
+## Verified scope and limits
 
-## Evidence model
+- Project-specific skills and the official plugin setup were merged to the private GlassBox development branch.
+- Official-skill use and one narrowly scoped Explorer trial have recorded evidence.
+- The installed plugin's current runtime state is not asserted from this public README.
+- No skill grants permission to launch devices, operate user accounts, alter protected data, merge or release.
+- A separate Product decision remains necessary for UX and runtime acceptance.
 
-Depending on the change, completion evidence can include:
+This is documentation of an **active engineering practice**, not a published automation benchmark.
 
-- repository and diff review;
-- targeted automated tests;
-- debug or release builds;
-- physical-device validation;
-- real-runtime smoke checks;
-- persistence/restore/reinstall checks;
-- rollback or recovery proof;
-- explicit visual or behavioral acceptance.
+## More detail
 
-The important rule is that **evidence matches the claim**. A compile proves compilation. It does not automatically prove a user flow, synchronization path, production deployment, or visual result.
+[Skill-guided Apple development](docs/skill-guided-apple-development.md) · [Workflow principles](docs/workflow-principles.md) · [Ticket lifecycle](docs/ticket-lifecycle.md) · [Security and sanitization](docs/security-and-sanitization.md) · [Brainflow diagram](diagrams/workflow-overview.md)
 
-## Brainflow — durable engineering knowledge
+## Related native Apple work
 
-Brainflow is the private project-memory layer around GlassBox. It keeps reviewed decisions and validated outcomes available beyond individual chats or issue lifecycles.
-
-It contains durable product and engineering context such as:
-
-- accepted product decisions;
-- release and TestFlight context;
-- validation summaries;
-- architecture/workflow decisions;
-- historical project state;
-- links between implementation evidence and longer-lived knowledge.
-
-A deterministic Brain Atlas export helps visualize relationships across this knowledge system.
-
-<p align="center">
-  <img src="assets/visuals/brainflow-atlas.jpg" alt="Brainflow Atlas showing interconnected durable project-memory regions" width="700">
-</p>
-
-Information does not become durable memory merely because an AI generated it. Source, meaning, and validation state are reviewed first.
-
-## Status discipline
-
-Workflow state describes evidence and decision state rather than optimism:
-
-- **Intake** — an idea or report exists;
-- **Backlog** — future work is shaped but inactive;
-- **In Progress** — investigation or implementation is active;
-- **In Review** — evidence, validation, or a decision is pending;
-- **Done** — accepted criteria and required evidence are complete.
-
-The exact tracker configuration remains private; the transferable idea is that status should communicate what is actually known.
-
-## Engineering principles
-
-### Explicit authority
-
-Each system owns a bounded kind of truth. This reduces accidental drift between tickets, source, runtime behavior, and documentation.
-
-### Deterministic before semantic
-
-Where data can be collected, normalized, keyed, compared, or validated deterministically, that happens before model-assisted interpretation.
-
-### Runtime matters
-
-Physical devices and real services remain authoritative for behavior that only exists at runtime.
-
-### Recovery is part of delivery
-
-Infrastructure and persistence changes are planned with rollback, restore, or safe failure paths rather than treating recovery as an afterthought.
-
-### Durable knowledge is reviewed
-
-Chat history is useful working context, not permanent project truth. Only reviewed outcomes and decisions are promoted into long-lived project memory.
-
-## What this demonstrates
-
-This system is supporting evidence for the product and infrastructure work elsewhere in the portfolio. It demonstrates:
-
-- engineering orchestration across multiple tools;
-- source-of-truth design;
-- risk-sensitive validation;
-- explicit human/automation authority boundaries;
-- long-lived technical documentation;
-- deterministic evidence handling;
-- a development process that remains inspectable even when AI tools participate in implementation.
-
-## Public boundary
-
-The repository does not publish GlassBox source, real issue bodies, private prompts, raw runtime evidence, live n8n exports, credentials, internal Brainflow documents, or private roadmap material.
-
-Public diagrams and explanations describe responsibilities and engineering principles rather than exposing deployable internal systems.
-
-## Explore
-
-- [Workflow principles](docs/workflow-principles.md)
-- [Source-of-truth model](docs/source-of-truth-model.md)
-- [Ticket lifecycle](docs/ticket-lifecycle.md)
-- [Validation and evidence](docs/validation-and-evidence.md)
-- [Skill-guided Apple development](docs/skill-guided-apple-development.md)
-- [AI tool responsibilities](docs/ai-tool-responsibilities.md)
-- [Security and sanitization](docs/security-and-sanitization.md)
-- [Diagram notes](diagrams/workflow-overview.md)
-- [Changelog](CHANGELOG.md)
-
-## Related work
-
+- [GlassBox — iOS/watchOS](https://github.com/Charles-drZ/glassbox-showcase)
+- [GlassPort — native macOS](https://github.com/Charles-drZ/glassport-showcase)
 - [Developer profile](https://github.com/Charles-drZ)
-- [GlassBox iOS/watchOS](https://github.com/Charles-drZ/glassbox-showcase)
-- [GlassPort native macOS](https://github.com/Charles-drZ/glassport-showcase)
-- [NodeMedic](https://github.com/Charles-drZ/nodemedic-showcase)
-- [Raspberry Home](https://github.com/Charles-drZ/raspberry-home-showcase)
-- [Automation workflow](https://github.com/Charles-drZ/automation-workflow-showcase)
+
+The application source, private prompts, internal tracker data, credentials and deployable automation configurations are not published here.
